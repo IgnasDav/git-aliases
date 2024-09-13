@@ -1,0 +1,6 @@
+[alias]
+    main = !git checkout main && git pull origin
+    format = !npx nx format:write --uncommitted
+    push-new = "!f() { git format; git add .; git commit -m \"$1\"; git push; }; f"
+    no-edit = "!f() { git format; git add .; git commit --amend --no-edit; git push -f; }; f"
+    new = "!f() { git main; npm ci; git checkout -b \"$1\"; }; f"
